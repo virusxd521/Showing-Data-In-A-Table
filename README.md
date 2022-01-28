@@ -2,7 +2,7 @@
 
 ## Technologies
 
-The Peoject is created with:
+The Project is created with:
 
 - HTML
 - CSS
