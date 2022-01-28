@@ -2,7 +2,7 @@
 
 ## Technologies
 
-The Peiject is created with:
+The Peoject is created with:
 
 - HTML
 - CSS
