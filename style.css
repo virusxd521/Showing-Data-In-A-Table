@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.table {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 40%;
+  box-shadow: black 5px 5px 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tbody tr:nth-child(odd) {
+  background-color: rgba(156, 156, 156, 0.4);
+}
