@@ -37,7 +37,7 @@ class AppendingThreeChilds {
 // function fo checking the elements in rows
 const checking_row_elements = (object, property) => {
     const td = document.createElement("td");
-    typeof object[property] === "object" ? td.textContent = `${object[property].hrs}:${object[property].mins}` : td.textContent = object[property];
+    const zain = typeof object[property] === "object" ? td.textContent = `${object[property].hrs}:${object[property].mins}` : td.textContent = object[property];
     td.classList.add("td");
     return td;
 }
