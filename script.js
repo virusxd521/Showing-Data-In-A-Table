@@ -20,37 +20,57 @@ const departures = [
 {time: {hrs: 7, mins: 27}, train: 'New Haven Line', no: 1541, to: 'Grand Central Terminal', status: 'On Time', track: 14},
 ];
 
+// Class for adding class and appending child
+// ------> The calss accepts only strings as the elements 
+class AppendingThreeChilds {
+    constructor(grandParent, parent, child){
+        this.grandParent = grandParent;
+        this.parent = parent;
+        this.child = child;
+    }
+    everything(){
+        this.grandParent.appendChild(this.parent);
+        return this.parent.appendChild(this.child);
+    }
+}
+
+// function fo checking the elements in rows
+const checking_row_elements = (object, property) => {
+    const td = document.createElement("td");
+    typeof object[property] === "object" ? td.textContent = `${object[property].hrs}:${object[property].mins}` : td.textContent = object[property];
+    td.classList.add("td");
+    return td;
+}
 
 // function for creating tabel rows
+const creatingRows = (object, property, tableRow) => {
+    const td = checking_row_elements(object, property);
+    const appending = new AppendingThreeChilds(tableBody, tableRow, td);
+    appending.everything();
+}
 
+const creatingTableHeader = (property, object) => {
+    const th = document.createElement("th");
+    let afterUpper = [...property].map((item, index) => index === 0 ? item.toLocaleUpperCase() : item);
+    th.textContent = afterUpper.join("");
+    rowHeader.appendChild(th);
+}
 
 // Looping through the the elements
 departures.forEach((item, index) => {
     if(index === 0){
         // getting the data to push to the header
         for(let property in item){
-            const th = document.createElement("th");
-            let afterUpper = [...property].map((item, index) => index === 0 ? item.toLocaleUpperCase() : item);
-            th.textContent = afterUpper.join("");
-            rowHeader.appendChild(th);
+            // function that will create the header of the table
+            creatingTableHeader(property, item);
         }
     } else {
         // need to push the data to all the rows as elements
         const tr = document.createElement("tr");
         for(let property in item){
-            // creating a new row in the table
-            const td = document.createElement("td");
-
-            td.textContent = item[property];
-            tr.appendChild(td);
-            tableBody.appendChild(tr);
-            console.log(item[property]);
-        }
-        
+            // function that will add all the data of the array to the tables
+            creatingRows(item, property, tr);
+        }   
     }
-    
-
 })
 
-
-// // Function for creating elements and append them to the an existing one

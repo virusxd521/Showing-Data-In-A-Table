@@ -2,8 +2,12 @@
 
 ## Technologies
 
-The Project is created with:
+The Project utilize the following tech stack:
 
 - HTML
 - CSS
 - JavaScript
+
+## Setup
+
+- Just clone the repo and run it locally in your own browser
